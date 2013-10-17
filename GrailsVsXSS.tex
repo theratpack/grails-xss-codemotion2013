@@ -1,0 +1,101 @@
+% ====================================================================
+%
+% Licensed under Apache License version 2.0. See LICENSE file.
+%
+% by The Rat Pack (Rafael Luque and Jose San Leandro)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+
+\usetheme{codemotion-madrid2013}
+
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{listings}
+
+%% Presentation specific packages
+\usepackage{pbsi}  % BrushScriptX-Italic font
+\usepackage{fancybox}
+\usepackage{soul}
+\usepackage{color}
+\usepackage{minted}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes}
+
+% Metadata
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Grails vs XSS}
+\subtitle{Defending Grails against XSS attacks}
+\author{R. Luque \& J. San Leandro}
+\institute{%
+  \href{http://twitter.com/rafael_luque}{@rafael\_luque} - \href{http://osoco.es}{Osoco}
+  \hskip20pt
+  \href{http://twitter.com/rydnr}{@rydnr} - \href{http://www.ventura24.es}{Ventura24}
+}
+\date[10/2013]{Octubre 2013}
+\subject{Defending Grails against XSS attacks}
+\keywords{XSS, Grails, security, javamelody, exploit, OWASP, CSP, botnet, BeEF, flu-project}
+
+% An image declaration
+% E.g. by-nc-sa Creative Commons icon
+% \pgfdeclareimage[width=2cm]{by-nc-sa}{images/by-nc-sa}
+
+\pgfdeclareimage[width=.6cm]{grails-logo}{images/grails-logo}
+\pgfdeclareimage[width=1.5cm]{madridgug-logo}{images/madridgug}
+\pgfdeclareimage[width=\paperwidth, height=\paperheight]{hieroglyphs}{images/3996794712_37fc0788aa_o.jpg}
+\pgfdeclareimage[width=\paperwidth, height=\paperheight]{grails-org-defacement}{images/grails-org-defacement.png}
+\pgfdeclareimage[width=.9\textwidth]{grails-org-defacement-medium}{images/grails-org-defacement}
+\pgfdeclareimage[width=\paperwidth, height=\paperheight]{white-rabbit}{images/5849593440_4bc8d03325_o.jpg}
+\pgfdeclareimage[width=.9\textwidth]{hooked-browsers}{images/hooked-browsers-beef}
+\pgfdeclareimage[width=.9\textwidth]{preparing-exploit-server}{images/preparing-exploit-server}
+\pgfdeclareimage[width=.9\textwidth]{injecting-invisible-frame}{images/injecting-invisible-frame}
+\pgfdeclareimage[width=.9\textwidth]{open-meterpreter-session}{images/open-meterpreter-session}
+\pgfdeclareimage[width=.5\textwidth]{notepad-process}{images/notepad-process}
+\pgfdeclareimage[width=.9\textwidth]{remote-shell}{images/remote-shell}
+\pgfdeclareimage[width=.9\textwidth]{keylogging}{images/keylogging}
+\pgfdeclareimage[width=.9\textwidth]{vnc}{images/vnc}
+\pgfdeclareimage[width=.9\textwidth]{vnc-tightvnc}{images/vnc-tightvnc}
+\pgfdeclareimage[width=.9\textwidth]{install-malware}{images/install-malware}
+\pgfdeclareimage[width=.9\textwidth]{botnet-panel}{images/botnet-panel}
+\pgfdeclareimage[width=\paperwidth, height=\paperheight]{zombies}{images/4986897433_aa757bdc83_o.jpg}
+\pgfdeclareimage[width=.9\textwidth]{javamelody-xssed}{images/javamelody-xssed}
+
+% Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Custom commands and configurations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\handwritten}[1]{{\bsifamily\color{red}#1}}
+
+\renewcommand{\theFancyVerbLine}{\sffamily \textcolor[rgb]{0.5,0.5,1.0}{\tiny \oldstylenums{\arabic{FancyVerbLine}}}}
+\definecolor{srcbg}{rgb}{0.98,0.98,0.98}
+\usemintedstyle{trac}
+
+% Document contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\tikzstyle{every picture}+=[remember picture]
+
+% Contents
+
+\include{cover}
+\include{grails-org-demo-part1}
+\include{xss-intro}
+\include{grails-org-demo-part2}
+\include{responsibility}
+\include{grails-encoding}
+\include{grails-plugins-security}
+\include{solutions}
+\include{conclusions}
+\include{credits}
+\include{cover}
+
+\end{document}
